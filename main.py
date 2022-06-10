@@ -1,6 +1,4 @@
 import streamlit as st
-from sklearn.manifold import TSNE
-from sklearn.decomposition import PCA
 import pandas as pd
 import re
 import pymorphy2

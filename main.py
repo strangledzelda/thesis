@@ -34,7 +34,7 @@ plt.rc('font', size=SMALL_SIZE)
 # загрузка датасета
 @st.cache
 def load_data():
-    url = 'https://raw.githubusercontent.com/strangledzelda/thesis/main/cyberbulling.csv'
+    url = 'https://raw.githubusercontent.com/strangledzelda/thesis/main/df_with_stats.csv'
     # data = pd.read_csv('C:\\Users\\dasha\\Downloads\\df_with_stats.csv')
     data = pd.read_csv(url)
     return data

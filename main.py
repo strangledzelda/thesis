@@ -600,5 +600,4 @@ tfidf.fit(X_train.values.astype('U'))
 X_train_cv = cv.fit_transform(X_train.values.astype('U'))
 X_test_cv = cv.transform(X_test.values.astype('U'))
 all_stopwords = load_stopwords()
-X_for_w2v = data_for_w2v.processed
 main()

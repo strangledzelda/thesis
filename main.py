@@ -34,8 +34,9 @@ plt.rc('font', size=SMALL_SIZE)
 # загрузка датасета
 @st.cache
 def load_data():
-    # url = 'https://raw.githubusercontent.com/strangledzelda/thesis/main/cyberbulling.csv'
-    data = pd.read_csv('C:\\Users\\dasha\\Downloads\\df_with_stats.csv')
+    url = 'https://raw.githubusercontent.com/strangledzelda/thesis/main/cyberbulling.csv'
+    # data = pd.read_csv('C:\\Users\\dasha\\Downloads\\df_with_stats.csv')
+    data = pd.read_csv(url)
     return data
 
 
@@ -242,11 +243,11 @@ def homepage():
 def graphics():
     st.header("Графики и статистические данные")
     st.subheader('Облако самых частых слов *до* удаления стоп-слов:')
-    st.image('wordcloud_before.png')
+    st.image('https://github.com/strangledzelda/thesis/blob/main/wordcloud_before.png')
     st.subheader('Облако самых частых слов *после* удаления стоп-слов:')
-    st.image('wordcloud_after.png')
+    st.image('https://github.com/strangledzelda/thesis/blob/main/wordcloud_after.png')
     st.subheader('Распределение по классам:')
-    st.image('pie.png')
+    st.image('https://github.com/strangledzelda/thesis/blob/main/pie.png')
     # piechart()
     st.subheader('Статистические данные')
     st.write('Рассмотрим следующие искусственно созданные статистические показатели корпуса текстов:\n\n* число '
@@ -272,30 +273,30 @@ def neural_network():
         st.write('В полносвязной нейронной сети прямого распространения каждый нейрон связан со всеми остальными '
                  'нейронами, находящимися в соседних слоях. Поскольку стоит задача бинарной классификации, '
                  'на выходном слое достаточно одного нейрона с сигмоидальной функцией.')
-        st.image('dense.png')
+        st.image('https://github.com/strangledzelda/thesis/blob/main/dense.png')
         st.latex(r'''f(x)=\frac{1}{1+e^{-x}}''')
         if st.checkbox('1 скрытый слой, 16 нейронов, текст в формате OHE'):
-            st.image('dense-1-16.png')
+            st.image('https://github.com/strangledzelda/thesis/blob/main/dense-1-16.png')
             st.write('Точность на тестовой выборке - 55%')
         if st.checkbox('1 скрытый слой, 16 нейронов, текст после Embedding-слоя'):
-            st.image('dense-1-16-emb.png')
+            st.image('https://github.com/strangledzelda/thesis/blob/main/dense-1-16-emb.png')
             st.write('Точность на тестовой выборке - 83%')
             st.write('Очевидно, модель переобучилась. После добавления слоя Dropout точность повышается на 2-3% (до '
                      '83-84%).')
         if st.checkbox('2 скрытых слоя, 16 + 8 нейронов, Embedding + Dropout (0.5)'):
-            st.image('dense-2-16-8.png')
+            st.image('https://github.com/strangledzelda/thesis/blob/main/dense-2-16-8.png')
             st.write('Точность на тестовой выборке - 83%')
         if st.checkbox('2 скрытых слоя, 64 + 32 нейронов, Embedding + Dropout (0.5)'):
-            st.image('dense-2-64-32.png')
+            st.image('https://github.com/strangledzelda/thesis/blob/main/dense-2-64-32.png')
             st.write('Точность на тестовой выборке - 82%')
         if st.checkbox('3 скрытых слоя, 32 + 16 + 8 нейронов, Embedding + Dropout (0.5)'):
-            st.image('dense-3-32-16-8.png')
+            st.image('https://github.com/strangledzelda/thesis/blob/main/dense-3-32-16-8.png')
             st.write('Точность на тестовой выборке - 83%')
         if st.checkbox('3 скрытых слоя, 128 + 64 + 32 нейронов, Embedding + Dropout (0.5)'):
-            st.image('dense-3-128-64-32.png')
+            st.image('https://github.com/strangledzelda/thesis/blob/main/dense-3-128-64-32.png')
             st.write('Точность на тестовой выборке - 83%')
         if st.checkbox('4 скрытых слоя, 128 + 64 + 32 + 16 нейронов, Embedding + Dropout (0.5)'):
-            st.image('dense-4-128-64-32-16.png')
+            st.image('https://github.com/strangledzelda/thesis/blob/main/dense-4-128-64-32-16.png')
             st.write('Точность на тестовой выборке - 83%')
     if model_choice == 'Свёрточная':
         st.write('Как правило, сверточную (двуслойную) архитектуру нейронных сетей используют для работы с '
@@ -305,21 +306,21 @@ def neural_network():
                  '«смотрит» на небольшой кусочек предыдущего слоя и обобщает информацию с него для передачи дальше. ')
         st.write('Обычно используется не классический MaxPooling, MaxOverTimePooling / GlobalMaxPooling - MaxPooling, '
                  'применённый ко всей последовательности сразу, то есть ширина его окна равна ширине всей матрицы.')
-        st.image('cnn-for-text.png')
+        st.image('https://github.com/strangledzelda/thesis/blob/main/cnn-for-text.png')
         st.write('\n\n\n\n')
         st.write('\n\n **1 свёрточный слой, 64 нейрона, ядро свёртки = 3**')
-        st.image('cnn-64.png')
+        st.image('https://github.com/strangledzelda/thesis/blob/main/cnn-64.png')
         st.write('Точность на тестовой выборке - 87%')
         st.write('**2 свёрточных слоя 62 + 32, ядро свёртки = 3**')
-        st.image('cnn-32-16.png')
+        st.image('https://github.com/strangledzelda/thesis/blob/main/cnn-32-16.png')
         st.write('Точность на тестовой выборке - 82%')
     if model_choice == 'Рекуррентная':
         st.write('Рекуррентные сети (RNN) используются для лингвистических задач, когда нужно «помнить» '
                  'синтакcическую структуру предложения. В RNN разрешены циклы, выход нейрона может быть соединён со '
                  'входом. ')
-        st.image('rnn.png')
+        st.image('https://github.com/strangledzelda/thesis/blob/main/rnn.png')
         st.write('1 слой, 12 нейронов')
-        st.image('rnn-1-12.png')
+        st.image('https://github.com/strangledzelda/thesis/blob/main/rnn-1-12.png')
         st.write('Точность на тестовой выборке - 74%')
 
 
@@ -364,13 +365,13 @@ def word2vec():
     if st.checkbox('Показать топологию нейронной сети для модели skip-gram.'):
         st.write('Skip-gram получает на вход одно слово и предсказывает подходящий контекст. Контекст - это ближайшие '
                  'слова, образованные в зависимости от размера контекстного окна.')
-        st.image('skipgram1.png')
+        st.image('https://github.com/strangledzelda/thesis/blob/main/skipgram1.png')
     if st.checkbox('Показать топологию нейронной сети для модели CBOW'):
         st.write('CBOW - обычная модель мешка слов с учётом ближайших соседей (контекста). CBOW пытается угадать '
                  'слово исходя из окружающего контекста. Интуитивно понятно, что задача CBOW '
                  'намного проще, и действительно, алгоритм сходится быстрее, чем skip-граммы.')
 
-        st.image('cbow1.png')
+        st.image('https://github.com/strangledzelda/thesis/blob/main/cbow1.png')
     st.write('В нейронных сетях плотное векторное представление слов определяется в процессе обучения. На первом '
              'этапе элементы вектором инициализируются случайными числами, изменений значений векторов происходит '
              'итерационно с помощью метода обратного распространения ошибки. ')
@@ -381,7 +382,7 @@ def word2vec():
         st.write('* читается корпус, рассчитывается встречаемость каждого слова в корпусе,\n\n * массив слов '
                  'сортируется по частоте (слова сохраняются в хэш-таблице), редкие слова удаляются,\n\n * cтроится '
                  'дерево Хаффмана,\n\n * проходим окном заданного размера по предложению.')
-    w2v = gensim.models.Word2Vec.load('C:\\Users\\dasha\\word2vec.model')
+    w2v = gensim.models.Word2Vec.load('https://github.com/strangledzelda/thesis/blob/main/word2vec.model')
     word = st.text_input("Введите слово (безопасные: родитель, учитель, школа ребёнок, мама, Москва, дорогой, город, расход, заработок)")
     if word != '':
         similar = w2v.wv.most_similar(positive=[word])
@@ -548,7 +549,7 @@ def description():
                  'проблему нулевой вероятности прибавлением единицы к частоте каждого слова.')
     st.subheader('4. Оценка качества работы модели.')
     st.write('Качество предсказаний алгоритма оценивается путём сравнения истинных меток с ответами модели.')
-    st.image('matrix.png')
+    st.image('https://github.com/strangledzelda/thesis/blob/main/matrix.png')
     st.write('Для оценки я использовала следующие метрики:')
     st.write(
         '* **Общая точность** (*accuracy*) показывает долю объектов, для которых алгоритм выдал правильные ответы. '

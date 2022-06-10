@@ -1,6 +1,4 @@
 import streamlit as st
-import plotly
-import plotly.graph_objs as go
 from sklearn.manifold import TSNE
 from sklearn.decomposition import PCA
 import pandas as pd
